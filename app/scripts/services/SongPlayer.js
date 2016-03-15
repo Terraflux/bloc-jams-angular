@@ -31,7 +31,7 @@
 			});
 
 			currentBuzzObject.bind('timeupdate', function(){
-				$rootScope.$apply(function{
+				$rootScope.$apply(function() {
 					SongPlayer.currentTime = currentBuzzObject.getTime();
 				});
 			});
@@ -64,6 +64,7 @@
 		@desc song object, contains audioUrl attribute & more
 		@type {Obj}
 		*/
+
 		SongPlayer.currentSong = null;	
 
 		/**
@@ -71,7 +72,14 @@
 		@type {Num}
 		*/
 
-		SongPlayer.currentTime = null;	
+		SongPlayer.currentTime = null;
+
+		/**
+		@desc Current volume of music(0-100)
+		@type {Num}
+		*/
+
+		SongPlayer.volume = 50;
 
 		SongPlayer.play = function(song){
 			song = song || SongPlayer.currentSong;
@@ -121,6 +129,11 @@
 			if (currentBuzzObject) {
 				currentBuzzObject.setTime(time);
 			}
+		};
+
+		SongPlayer.setVolume = function(volume){
+			currentBuzzObject.setVolume(volume);
+			SongPlayer.volume = volume;
 		};
 
 		return SongPlayer;
