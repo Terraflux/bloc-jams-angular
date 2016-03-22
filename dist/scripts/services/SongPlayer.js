@@ -6,12 +6,14 @@
 		@desc = Album file with attributes
 		@type = {Obj}
 		*/
+		
 		var currentAlbum = Fixtures.getAlbum();
 
 		/**
 		@desc Buzz object sound file
 		@type {Obj}
 		*/
+
 		var currentBuzzObject = null;
 
 		/**
